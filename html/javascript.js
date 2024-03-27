@@ -1768,6 +1768,12 @@ function startUp()
 			return true;
 		}, true);
 		body.addEventListener('keydown', function(event) { 
+			// ignore in input and textarea
+			if (event.target instanceof HTMLInputElement 
+					|| event.target instanceof HTMLTextAreaElement)
+			{
+				return;
+			}
 			if (event.key === " ") 
 			{ 
 				let on = !document.getElementById('skip_booster').classList.contains('button_on');
